@@ -27,23 +27,54 @@ export default class Sankey extends Component {
   constructor(props) {
     super(props);
     this.queryIndex = props.queryIndex;
-    this.state = {};
+    this.range = props.range;
+    this.state={
+      range: props.range
+    };
   }
 
   componentDidMount() {
-      this.drawChart();
+      this.drawChart(this.props.range[0], this.props.range[1]);
   }
+
+  shouldComponentUpdate(nextProps, nextState){
+    if (nextState.range == this.state.range){
+      return false;
+    }
+    this.drawChart(nextState.range[0], nextState.range[1]);
+  }
+
+  componentWillReceiveProps(props){
+    console.log(props.range);
+    this.setState({
+      range: props.range
+    });
+    //this.drawChart();
+  }
+
   
-  drawChart(){
+  drawChart(start, end){
     let elasticsearch = require("elasticsearch-browser/elasticsearch.js");
     let client = new elasticsearch.Client({
       host: "localhost:9200"
     });
+    
+
+    
     client
       .search({
         index: this.queryIndex,
         size: 1000,
         body: {
+          query: {
+            range : {
+              "@timestamp": {
+                gte: start,
+                lte: end,
+                format: "MM/dd/yyyy||yyyy"
+              }
+            }
+          },
           //聚合
           aggs: {
             table: {

@@ -1,41 +1,100 @@
-/* line 3, ../kibana-extra/siemens/public/app.scss */
+/* line 1, ../kibana-extra/siemens/public/app.scss */
 .chart-panel {
   background-color: rgba(35, 17, 77, 0.8);
   border-color: rgba(0, 0, 0, 0);
   box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.1); }
 
-/* line 8, ../kibana-extra/siemens/public/app.scss */
+/* line 6, ../kibana-extra/siemens/public/app.scss */
 .page-content {
   background-color: rgba(51, 22, 97, 0.8);
   border-color: rgba(0, 0, 0, 0); }
 
-/* line 13, ../kibana-extra/siemens/public/app.scss */
+/* line 11, ../kibana-extra/siemens/public/app.scss */
 .bg {
   background: linear-gradient(to bottom right, #7749d5, #ff666e); }
 
-/* line 18, ../kibana-extra/siemens/public/app.scss */
-.siemens .font-white, .siemens .euiTitle {
+/* line 16, ../kibana-extra/siemens/public/app.scss */
+.siemens .font-white,
+.siemens .euiTitle {
   color: #ffffff !important; }
 
-/* line 23, ../kibana-extra/siemens/public/app.scss */
+/* line 22, ../kibana-extra/siemens/public/app.scss */
 .author {
   font-size: 1rem;
   margin-left: 1rem;
   font-weight: 400; }
 
-/* line 30, ../kibana-extra/siemens/public/app.scss */
+/* line 29, ../kibana-extra/siemens/public/app.scss */
 #reportable-event .title {
   font-size: 1.2rem;
   line-height: 2.5rem;
   color: #b7b7b7 !important;
   font-weight: 700; }
 
-/* line 36, ../kibana-extra/siemens/public/app.scss */
+/* line 35, ../kibana-extra/siemens/public/app.scss */
 #reportable-event .event {
   line-height: 1.5rem; }
 
-/* line 39, ../kibana-extra/siemens/public/app.scss */
+/* line 38, ../kibana-extra/siemens/public/app.scss */
 #reportable-event .error-event {
   color: #ff666e !important; }
 
-/*# sourceMappingURL=data:application/json;base64,ewoJInZlcnNpb24iOiAzLAoJImZpbGUiOiAiYXBwLmNzcyIsCgkic291cmNlcyI6IFsKCQkiYXBwLnNjc3MiCgldLAoJIm5hbWVzIjogW10sCgkibWFwcGluZ3MiOiAiO0FBRUEsQUFBQSxZQUFZLENBQUM7RUFDWCxnQkFBZ0IsRUFBRSxxQkFBcUI7RUFDdkMsWUFBWSxFQUFFLGdCQUFnQjtFQUM5QixVQUFVLEVBQUUsR0FBRyxDQUFDLEdBQUcsQ0FBQyxHQUFHLENBQUMsa0JBQWtCLEdBQzNDOzs7QUFDRCxBQUFBLGFBQWEsQ0FBQztFQUNaLGdCQUFnQixFQUFFLHFCQUFxQjtFQUN2QyxZQUFZLEVBQUUsZ0JBQWdCLEdBQy9COzs7QUFFRCxBQUFBLEdBQUcsQ0FBQztFQUNGLFVBQVUsRUFBRSxrREFBa0QsR0FDL0Q7OztBQUVELEFBQ0ksUUFESSxDQUNKLFdBQVcsRUFEZixRQUFRLENBQ1MsU0FBUyxDQUFBO0VBQ2xCLEtBQUssRUFBRSxrQkFBa0IsR0FDNUI7OztBQUdMLEFBQUEsT0FBTyxDQUFBO0VBQ0gsU0FBUyxFQUFFLElBQUk7RUFDZixXQUFXLEVBQUUsSUFBSTtFQUNqQixXQUFXLEVBQUUsR0FBRyxHQUNuQjs7O0FBRUQsQUFDRSxpQkFEZSxDQUNmLE1BQU0sQ0FBQTtFQUNKLFNBQVMsRUFBRSxNQUFNO0VBQ2YsV0FBVyxFQUFFLE1BQU07RUFDbkIsS0FBSyxFQUFFLGtCQUFrQjtFQUN6QixXQUFXLEVBQUUsR0FBRyxHQUNuQjs7O0FBTkgsQUFPRSxpQkFQZSxDQU9mLE1BQU0sQ0FBQTtFQUNKLFdBQVcsRUFBRSxNQUFNLEdBQ3BCOzs7QUFUSCxBQVVFLGlCQVZlLENBVWYsWUFBWSxDQUFBO0VBQ1YsS0FBSyxFQUFFLGtCQUFrQixHQUMxQiIKfQ== */
+/* line 44, ../kibana-extra/siemens/public/app.scss */
+.time-filter .range {
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 15px;
+  width: 80%; }
+
+/* line 51, ../kibana-extra/siemens/public/app.scss */
+.time-filter .DayPicker-Caption, .time-filter .DayPicker-Weekday abbr, .time-filter .DayPicker-Day {
+  color: rgba(255, 255, 255, 0.8); }
+
+/* line 55, ../kibana-extra/siemens/public/app.scss */
+.time-filter #time-start,
+.time-filter #time-end {
+  color: rgba(255, 255, 255, 0);
+  display: none; }
+
+/* line 61, ../kibana-extra/siemens/public/app.scss */
+.time-filter .btn {
+  color: #fff;
+  padding: 6px 15px;
+  font-weight: 500;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  float: left;
+  transition: max-height 0.15s ease-out; }
+
+/* line 71, ../kibana-extra/siemens/public/app.scss */
+.time-filter .btn-submit {
+  background-color: #ff7e53; }
+
+/* line 75, ../kibana-extra/siemens/public/app.scss */
+.time-filter .btn-reset {
+  background-color: #4e6ffa;
+  margin-top: 12px;
+  margin-right: 10px; }
+
+/* line 80, ../kibana-extra/siemens/public/app.scss */
+.time-filter .DayPicker:not(.DayPicker--interactionDisabled)
+.DayPicker-Day:not(.DayPicker-Day--disabled):not(.DayPicker-Day--selected):not(.DayPicker-Day--outside):hover {
+  background-color: rgba(0, 0, 0, 0.5); }
+
+/* line 85, ../kibana-extra/siemens/public/app.scss */
+.time-filter .DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside) {
+  position: relative;
+  background-color: #ff7e53;
+  color: #f0f8ff; }
+
+/* line 91, ../kibana-extra/siemens/public/app.scss */
+.time-filter .DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside):hover {
+  background-color: #ff7e53; }
+
+/* line 95, ../kibana-extra/siemens/public/app.scss */
+.time-filter .Selectable
+.DayPicker-Day--selected:not(.DayPicker-Day--start):not(.DayPicker-Day--end):not(.DayPicker-Day--outside) {
+  background-color: #ffe5dd !important;
+  color: #ff7e53; }
+
+/*# sourceMappingURL=data:application/json;base64,ewoJInZlcnNpb24iOiAzLAoJImZpbGUiOiAiYXBwLmNzcyIsCgkic291cmNlcyI6IFsKCQkiYXBwLnNjc3MiCgldLAoJIm5hbWVzIjogW10sCgkibWFwcGluZ3MiOiAiO0FBQUEsQUFBQSxZQUFZLENBQUM7RUFDWCxnQkFBZ0IsRUFBRSxxQkFBcUI7RUFDdkMsWUFBWSxFQUFFLGdCQUFnQjtFQUM5QixVQUFVLEVBQUUsR0FBRyxDQUFDLEdBQUcsQ0FBQyxHQUFHLENBQUMsa0JBQWtCLEdBQzNDOzs7QUFDRCxBQUFBLGFBQWEsQ0FBQztFQUNaLGdCQUFnQixFQUFFLHFCQUFxQjtFQUN2QyxZQUFZLEVBQUUsZ0JBQWdCLEdBQy9COzs7QUFFRCxBQUFBLEdBQUcsQ0FBQztFQUNGLFVBQVUsRUFBRSxrREFBa0QsR0FDL0Q7OztBQUVELEFBQ0UsUUFETSxDQUNOLFdBQVc7QUFEYixRQUFRLENBRU4sU0FBUyxDQUFDO0VBQ1IsS0FBSyxFQUFFLGtCQUFrQixHQUMxQjs7O0FBR0gsQUFBQSxPQUFPLENBQUM7RUFDTixTQUFTLEVBQUUsSUFBSTtFQUNmLFdBQVcsRUFBRSxJQUFJO0VBQ2pCLFdBQVcsRUFBRSxHQUFHLEdBQ2pCOzs7QUFFRCxBQUNFLGlCQURlLENBQ2YsTUFBTSxDQUFDO0VBQ0wsU0FBUyxFQUFFLE1BQU07RUFDakIsV0FBVyxFQUFFLE1BQU07RUFDbkIsS0FBSyxFQUFFLGtCQUFrQjtFQUN6QixXQUFXLEVBQUUsR0FBRyxHQUNqQjs7O0FBTkgsQUFPRSxpQkFQZSxDQU9mLE1BQU0sQ0FBQztFQUNMLFdBQVcsRUFBRSxNQUFNLEdBQ3BCOzs7QUFUSCxBQVVFLGlCQVZlLENBVWYsWUFBWSxDQUFDO0VBQ1gsS0FBSyxFQUFFLGtCQUFrQixHQUMxQjs7O0FBR0gsQUFDRSxZQURVLENBQ1YsTUFBTSxDQUFDO0VBQ0wsS0FBSyxFQUFFLElBQUk7RUFDWCxnQkFBZ0IsRUFBRSxrQkFBa0I7RUFDcEMsT0FBTyxFQUFFLElBQUk7RUFDYixLQUFLLEVBQUUsR0FBRyxHQUNYOzs7QUFOSCxBQVFFLFlBUlUsQ0FRVixrQkFBa0IsRUFScEIsWUFBWSxDQVFVLGtCQUFrQixDQUFDLElBQUksRUFSN0MsWUFBWSxDQVFtQyxjQUFjLENBQUE7RUFDekQsS0FBSyxFQUFFLHdCQUF3QixHQUNoQzs7O0FBVkgsQUFZRSxZQVpVLENBWVYsV0FBVztBQVpiLFlBQVksQ0FhVixTQUFTLENBQUM7RUFDUixLQUFLLEVBQUUsc0JBQXNCO0VBQzdCLE9BQU8sRUFBRSxJQUFJLEdBQ2Q7OztBQWhCSCxBQWtCRSxZQWxCVSxDQWtCVixJQUFJLENBQUM7RUFDSCxLQUFLLEVBQUUsSUFBSTtFQUNYLE9BQU8sRUFBRSxRQUFRO0VBQ2pCLFdBQVcsRUFBRSxHQUFHO0VBQ2hCLFNBQVMsRUFBRSxNQUFNO0VBQ2pCLGFBQWEsRUFBRSxHQUFHO0VBQ2xCLEtBQUssRUFBRSxJQUFJO0VBQ1gsVUFBVSxFQUFFLHlCQUF5QixHQUN0Qzs7O0FBMUJILEFBNEJFLFlBNUJVLENBNEJWLFdBQVcsQ0FBQztFQUNWLGdCQUFnQixFQUFFLE9BQU8sR0FDMUI7OztBQTlCSCxBQWdDRSxZQWhDVSxDQWdDVixVQUFVLENBQUM7RUFDVCxnQkFBZ0IsRUFBRSxPQUFPO0VBQ3pCLFVBQVUsRUFBRSxJQUFJO0VBQ2hCLFlBQVksRUFBRSxJQUFJLEdBQ25COzs7QUFwQ0gsQUFxQ0UsWUFyQ1UsQ0FxQ1YsVUFBVSxBQUFBLElBQUssQ0FBQSwrQkFBK0I7QUFDNUMsY0FBYyxBQUFBLElBQUssQ0FBQSx3QkFBd0IsQ0FBQyxJQUFLLENBQUEsd0JBQXdCLENBQUMsSUFBSyxDQUFBLHVCQUF1QixDQUFDLE1BQU0sQ0FBQztFQUM5RyxnQkFBZ0IsRUFBRSxrQkFBa0IsR0FDckM7OztBQXhDSCxBQTBDRSxZQTFDVSxDQTBDVix3QkFBd0IsQUFBQSxJQUFLLENBQUEsd0JBQXdCLENBQUMsSUFBSyxDQUFBLHVCQUF1QixFQUFFO0VBQ2xGLFFBQVEsRUFBRSxRQUFRO0VBQ2xCLGdCQUFnQixFQUFFLE9BQU87RUFDekIsS0FBSyxFQUFFLE9BQU8sR0FDZjs7O0FBOUNILEFBZ0RFLFlBaERVLENBZ0RWLHdCQUF3QixBQUFBLElBQUssQ0FBQSx3QkFBd0IsQ0FBQyxJQUFLLENBQUEsdUJBQXVCLENBQUMsTUFBTSxDQUFDO0VBQ3hGLGdCQUFnQixFQUFFLE9BQU8sR0FDMUI7OztBQWxESCxBQW9ERSxZQXBEVSxDQW9EVixXQUFXO0FBQ1Qsd0JBQXdCLEFBQUEsSUFBSyxDQUFBLHFCQUFxQixDQUFDLElBQUssQ0FBQSxtQkFBbUIsQ0FBQyxJQUFLLENBQUEsdUJBQXVCLEVBQUU7RUFDMUcsZ0JBQWdCLEVBQUUsa0JBQWtCO0VBQ3BDLEtBQUssRUFBRSxPQUFPLEdBQ2YiCn0= */

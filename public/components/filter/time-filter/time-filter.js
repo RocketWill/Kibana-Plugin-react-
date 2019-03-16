@@ -22,7 +22,6 @@ export default class TimeFilter extends Component {
     return {
       from: undefined,
       to: undefined,
-      test: "test"
     };
   }
 
@@ -32,11 +31,11 @@ export default class TimeFilter extends Component {
   }
   handleResetClick() {
     this.setState(this.getInitialState());
+    this.props.handleTimeRange("01/01/2018", "12/31/2019");
   }
 
   submit(){
-    console.log(this.state.test);
-    this.props.handlerFromParant(this.state.from.toLocaleDateString());
+    this.props.handleTimeRange(this.state.from.toLocaleDateString(), this.state.to.toLocaleDateString());
   }
 
   componentDidMount() {}
@@ -67,7 +66,7 @@ export default class TimeFilter extends Component {
   `
     return (
       <EuiPanel className="chart-panel">
-        <div className="RangeExample">
+        <div className="time-filter">
           <DayPicker
             className="Selectable"
             numberOfMonths={this.props.numberOfMonths}
@@ -75,7 +74,7 @@ export default class TimeFilter extends Component {
             modifiers={modifiers}
             onDayClick={this.handleDayClick}
           />
-          <p id="res">
+          <p className="range">
             {!from && !to && "Please select the first day."}
             {from && !to && "Please select the last day."}
             {from &&
@@ -90,8 +89,7 @@ export default class TimeFilter extends Component {
 
           {from && to && (
             <button
-              className="link"
-              id="reset-btn"
+              className="btn btn-reset"
               onClick={this.handleResetClick}
             >
               Reset
@@ -99,7 +97,7 @@ export default class TimeFilter extends Component {
           )}
           <br />
           {from && to && (
-            <button id="submit" onClick={this.submit}>
+            <button className="btn btn-submit" onClick={this.submit}>
               Submit
             </button>
           )}

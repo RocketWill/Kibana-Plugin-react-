@@ -54,17 +54,17 @@ export class Main extends React.Component {
   constructor(props) {
     super(props);
 
-    this.handleData = this.handleData.bind(this);
+    this.handleTimeRange = this.handleTimeRange.bind(this);
     this.state = {
       title: "Security Analysis",
       authors: ["程詠", "周旺"],
-      fromChild: 'he'
+      timeRange: ["2018","2019"]
     };
   }
 
-  handleData(data){
+  handleTimeRange(from, to){
     this.setState({
-      fromChild: data
+      timeRange: [from, to]
     });
   }
 
@@ -96,13 +96,13 @@ export class Main extends React.Component {
             <EuiPageContentHeader>
               <EuiTitle>
                 {/* 注意：裡面一定要放child elements */}
-                <h2>{this.state.fromChild}</h2>
+                <h2>{this.state.timeRange[0]} to {this.state.timeRange[1]}</h2>
               </EuiTitle>
             </EuiPageContentHeader>
             <EuiPageContentBody>
               <EuiFlexGroup>
-                <EuiFlexItem grow={2}>
-                  <TimeFilter handlerFromParant={this.handleData} />
+                <EuiFlexItem style={{ maxWidth: 600 }}>
+                  <TimeFilter handleTimeRange={this.handleTimeRange} />
                 </EuiFlexItem>
               </EuiFlexGroup>
 
@@ -110,7 +110,7 @@ export class Main extends React.Component {
 
               <EuiFlexGroup>
                 <EuiFlexItem grow={2}>
-                  <Sankey queryIndex={"winlog*"} width={"100%"} />
+                  <Sankey queryIndex={"winlog*"} range={this.state.timeRange} width={"100%"} />
                 </EuiFlexItem>
 
                 <EuiFlexItem grow={1}>
