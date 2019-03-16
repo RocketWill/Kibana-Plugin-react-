@@ -3,7 +3,7 @@ import "echarts/lib/component/tooltip";
 import "echarts/lib/component/title";
 import echarts from "echarts/lib/echarts";
 import "echarts";
-import { loadScatterPlotData } from "../helpers/helpers";
+import { loadScatterPlotData } from "../../helpers/helpers";
 
 import {
   EuiPage,

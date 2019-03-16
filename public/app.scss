@@ -1,3 +1,5 @@
+
+
 .chart-panel {
   background-color: rgba(35, 17, 77, 0.8);
   border-color: rgba(0, 0, 0, 0);
@@ -22,4 +24,19 @@
     font-size: 1rem;
     margin-left: 1rem;
     font-weight: 400;
+}
+
+#reportable-event{
+  .title{
+    font-size: 1.2rem;
+      line-height: 2.5rem;
+      color: #b7b7b7 !important;
+      font-weight: 700;
+  }
+  .event{
+    line-height: 1.5rem;
+  }
+  .error-event{
+    color: #ff666e !important;
+  }
 }
