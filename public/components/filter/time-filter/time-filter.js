@@ -65,7 +65,7 @@ export default class TimeFilter extends Component {
     }
   `
     return (
-      <EuiPanel className="chart-panel">
+      <EuiPanel className="chart-panel time-filter-panel">
         <div className="time-filter">
           <DayPicker
             className="Selectable"

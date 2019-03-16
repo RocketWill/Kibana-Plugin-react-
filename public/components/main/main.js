@@ -101,7 +101,7 @@ export class Main extends React.Component {
             </EuiPageContentHeader>
             <EuiPageContentBody>
               <EuiFlexGroup>
-                <EuiFlexItem style={{ maxWidth: 600 }}>
+                <EuiFlexItem style={{ maxWidth: 550 }}>
                   <TimeFilter handleTimeRange={this.handleTimeRange} />
                 </EuiFlexItem>
               </EuiFlexGroup>

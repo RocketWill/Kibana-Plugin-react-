@@ -41,11 +41,13 @@ export default class Sankey extends Component {
     if (nextState.range == this.state.range){
       return false;
     }
+    if (nextProps == undefined || nextState == undefined){
+      return false;
+    }
     this.drawChart(nextState.range[0], nextState.range[1]);
   }
 
   componentWillReceiveProps(props){
-    console.log(props.range);
     this.setState({
       range: props.range
     });
