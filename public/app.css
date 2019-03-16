@@ -1,0 +1,26 @@
+/* line 1, ../kibana-extra/siemens/public/app.scss */
+.chart-panel {
+  background-color: rgba(35, 17, 77, 0.8);
+  border-color: rgba(0, 0, 0, 0);
+  box-shadow: 2px 2px 7px rgba(0, 0, 0, 0.1); }
+
+/* line 6, ../kibana-extra/siemens/public/app.scss */
+.page-content {
+  background-color: rgba(51, 22, 97, 0.8);
+  border-color: rgba(0, 0, 0, 0); }
+
+/* line 11, ../kibana-extra/siemens/public/app.scss */
+.bg {
+  background: linear-gradient(to bottom right, #7749d5, #ff666e); }
+
+/* line 16, ../kibana-extra/siemens/public/app.scss */
+.siemens .font-white, .siemens .euiTitle {
+  color: #ffffff !important; }
+
+/* line 21, ../kibana-extra/siemens/public/app.scss */
+.author {
+  font-size: 1rem;
+  margin-left: 1rem;
+  font-weight: 400; }
+
+/*# sourceMappingURL=data:application/json;base64,ewoJInZlcnNpb24iOiAzLAoJImZpbGUiOiAiYXBwLmNzcyIsCgkic291cmNlcyI6IFsKCQkiYXBwLnNjc3MiCgldLAoJIm5hbWVzIjogW10sCgkibWFwcGluZ3MiOiAiO0FBQUEsQUFBQSxZQUFZLENBQUM7RUFDWCxnQkFBZ0IsRUFBRSxxQkFBcUI7RUFDdkMsWUFBWSxFQUFFLGdCQUFnQjtFQUM5QixVQUFVLEVBQUUsR0FBRyxDQUFDLEdBQUcsQ0FBQyxHQUFHLENBQUMsa0JBQWtCLEdBQzNDOzs7QUFDRCxBQUFBLGFBQWEsQ0FBQztFQUNaLGdCQUFnQixFQUFFLHFCQUFxQjtFQUN2QyxZQUFZLEVBQUUsZ0JBQWdCLEdBQy9COzs7QUFFRCxBQUFBLEdBQUcsQ0FBQztFQUNGLFVBQVUsRUFBRSxrREFBa0QsR0FDL0Q7OztBQUVELEFBQ0ksUUFESSxDQUNKLFdBQVcsRUFEZixRQUFRLENBQ1MsU0FBUyxDQUFBO0VBQ2xCLEtBQUssRUFBRSxrQkFBa0IsR0FDNUI7OztBQUdMLEFBQUEsT0FBTyxDQUFBO0VBQ0gsU0FBUyxFQUFFLElBQUk7RUFDZixXQUFXLEVBQUUsSUFBSTtFQUNqQixXQUFXLEVBQUUsR0FBRyxHQUNuQiIKfQ== */
