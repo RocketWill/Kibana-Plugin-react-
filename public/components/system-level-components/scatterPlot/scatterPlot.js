@@ -1,3 +1,7 @@
+//數據格式：[橫軸(時間), 縱軸(數量), [事件列表]]
+//參考文檔：https://echarts.baidu.com/examples/editor.html?c=bubble-gradient
+
+
 import React, { Component } from "react";
 import "echarts/lib/component/tooltip";
 import "echarts/lib/component/title";
@@ -6,20 +10,6 @@ import "echarts";
 import { loadScatterPlotData } from "../../helpers/helpers";
 
 import {
-  EuiPage,
-  EuiPageHeader,
-  EuiTitle,
-  EuiPageBody,
-  EuiPageContent,
-  EuiPageContentHeader,
-  EuiPageContentBody,
-  EuiText,
-  EuiFlexGroup,
-  EuiFlexItem,
-  EuiSpacer,
-  EuiCard,
-  EuiIcon,
-  EuiCode,
   EuiPanel,
   EuiFlexGrid
 } from "@elastic/eui";
@@ -31,10 +21,10 @@ export default class ScatterPlot extends Component {
   }
 
   componentDidMount() {
-      this.drawChart();
+    this.drawChart();
   }
 
-  drawChart(){
+  drawChart() {
     var reportChart = echarts.init(document.getElementById("error-report"));
     console.log(reportChart);
     let [report1, report2, report3] = loadScatterPlotData();
@@ -48,6 +38,17 @@ export default class ScatterPlot extends Component {
           color: "#b7b7b7",
           fontSize: 16
         }
+      },
+      tooltip: {
+        show: true,
+        formatter: function(param) {
+          let eventList = param.seriesName+" 異常事件：\n";
+          for(let evt=0; evt<param.value[2].length; evt+=1){
+            eventList += param.value[2][evt] + '\n'
+          }
+          return eventList;
+        },
+        extraCssText:'pading:30px; white-space:pre-wrap'
       },
       grid: {
         x: 30,
@@ -157,18 +158,13 @@ export default class ScatterPlot extends Component {
       ]
     };
 
-
     reportChart.setOption(option);
   }
 
   render() {
-    
     return (
       <EuiPanel className="chart-panel">
-        <div
-          id="error-report"
-          style={{ width: 400, height: 600 }}
-        />
+        <div id="error-report" style={{ width: 400, height: 600 }} />
       </EuiPanel>
     );
   }
