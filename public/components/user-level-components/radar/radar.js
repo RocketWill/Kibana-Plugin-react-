@@ -13,15 +13,35 @@ import {
 export default class Radar extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+        user: undefined
+    };
+
   }
 
   componentDidMount() {
-      this.drawChart();
+      this.drawChart(this.state.user);
   }
 
-  drawChart(){
-    let radarData = loadRadarData();
+  componentWillReceiveProps(props){
+    //console.log(props);
+    this.drawChart(props.user);
+
+  }
+
+  drawChart(user){
+    const radarDataPre = loadRadarData();
+    let radarData;
+    if (user == undefined){
+        //解析所有用戶信息
+        radarData = radarDataPre.map((obj, idx) => Object.values(obj)[0]);
+    }else{
+        //解析單個用戶信息
+        radarData = radarDataPre.filter((item, idx, array) => Object.keys(item)[0] == user);
+        radarData = Object.values(radarData[0]);
+    }
+    
+    //let radarData = radarDataPre.map((obj, idx) => Object.values(obj)[0]);
     let radarChart = echarts.init(document.getElementById('radar'));
         let option = {
             title: {

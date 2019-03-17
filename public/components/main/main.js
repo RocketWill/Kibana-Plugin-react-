@@ -55,16 +55,24 @@ export class Main extends React.Component {
     super(props);
 
     this.handleTimeRange = this.handleTimeRange.bind(this);
+    this.handleUser = this.handleUser.bind(this);
     this.state = {
       title: "Security Analysis",
       authors: ["程詠", "周旺"],
-      timeRange: ["2018","2019"]
+      timeRange: ["2018","2019"],
+      user: undefined
     };
   }
 
   handleTimeRange(from, to){
     this.setState({
       timeRange: [from, to]
+    });
+  }
+
+  handleUser(user){
+    this.setState({
+      user: user
     });
   }
 
@@ -96,7 +104,7 @@ export class Main extends React.Component {
             <EuiPageContentHeader>
               <EuiTitle>
                 {/* 注意：裡面一定要放child elements */}
-                <h2>{this.state.timeRange[0]} to {this.state.timeRange[1]}</h2>
+                <h2>{this.state.timeRange[0]} to {this.state.timeRange[1]} User: {this.state.user}</h2>
               </EuiTitle>
             </EuiPageContentHeader>
             <EuiPageContentBody>
@@ -122,7 +130,7 @@ export class Main extends React.Component {
 
               <EuiFlexGroup>
                 <EuiFlexItem style={{ maxWidth: 600 }} grow={1}>
-                  <Calendar width={"100%"} height={400} />
+                  <Calendar handleUser={this.handleUser} width={"100%"} height={400} />
                 </EuiFlexItem>
 
                 <EuiFlexItem grow={1} style={{ maxWidth: 320 }}>
@@ -130,7 +138,7 @@ export class Main extends React.Component {
                 </EuiFlexItem>
 
                 <EuiFlexItem grow={1} style={{ maxWidth: 400 }}>
-                  <Radar width={"100%"} height={400} />
+                  <Radar width={"100%"} height={400} user={this.state.user} />
                 </EuiFlexItem>
               </EuiFlexGroup>
 
@@ -145,7 +153,7 @@ export class Main extends React.Component {
               <EuiSpacer size="l" />
 
               <EuiFlexItem grow={8} style={{ maxWidth: 1370 }}>
-                <Parallel width={"100%"} height={400} />
+                <Parallel handleUser={this.handleUser} user={this.state.user} width={"100%"} height={400} />
               </EuiFlexItem>
             </EuiPageContentBody>
           </EuiPageContent>

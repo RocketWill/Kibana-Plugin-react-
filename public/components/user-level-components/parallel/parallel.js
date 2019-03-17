@@ -13,20 +13,28 @@ import {
 export default class Parallel extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+        user: undefined
+    };
   }
 
   componentDidMount() {
-      this.drawChart();
+      this.drawChart(this.state.user);
   }
 
-  drawChart(){
+  componentWillReceiveProps(props){
+    this.drawChart(props.user);
+  }
+
+  drawChart(user){
     let parallelData = loadParallelData();
     //添加parallel的用戶標籤
     const categoryData = []
     for (let i=0; i<parallelData.length; i++){
         categoryData.push(parallelData[i][0]);
     }
+
+    if (user != undefined) parallelData = loadParallelData().filter((item) => item[0] == user);
 
     var parallelChart = echarts.init(document.getElementById('parallel'));
     var option = {
@@ -108,9 +116,8 @@ export default class Parallel extends Component {
         ]
     };
     parallelChart.setOption(option);
-    parallelChart.on('click',function(params){
-        console.log(params.value);
-    })
+
+    parallelChart.on('click', (params) => this.props.handleUser(params.value) );
   }
 
   render() {

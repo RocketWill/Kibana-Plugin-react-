@@ -14,12 +14,15 @@ export default class Calendar extends Component {
   constructor(props) {
     super(props);
     this.state = {};
+    
+
+    this.drawChart = this.drawChart.bind(this);
   }
 
   componentDidMount() {
       this.drawChart();
   }
-
+  
   drawChart(){
     let calendarData = loadCalendarData();
     let calendarChart = echarts.init(document.getElementById('calendar'));
@@ -135,6 +138,9 @@ export default class Calendar extends Component {
             ]
         };
         calendarChart.setOption(option);
+
+        //設立點擊事件
+        calendarChart.on('click', (params) => this.props.handleUser(params.value[1]));
   }
 
   render() {
