@@ -21,16 +21,24 @@ export default class ScatterPlot extends Component {
   }
 
   componentDidMount() {
-    this.drawChart();
+    let themeColor = this.props.themeColor;
+    let themeChoose = this.props.themeChoose;
+    this.drawChart(themeColor[themeChoose]);
   }
 
-  drawChart() {
+  componentWillReceiveProps(props){
+    let themeColor = props.themeColor;
+    let themeChoose = props.themeChoose;
+    this.drawChart(themeColor[themeChoose]);
+  }
+
+  drawChart(themeColor) {
     var reportChart = echarts.init(document.getElementById("error-report"));
     console.log(reportChart);
     let [report1, report2, report3] = loadScatterPlotData();
 
     let option = {
-      color: ["#4E6FFA", "#8762FF", "#FF5C79", "#FF7E53"],
+      color: themeColor,
       legend: {
         y: "top",
         data: ["app crash", "service error", "defender"],

@@ -21,16 +21,24 @@ export default class Scatter3 extends Component {
         processes: loadScatter3Data()[0],
         words: loadScatter3Data()[1]
       });
-      this.drawChart();
+      let themeColor = this.props.themeColor;
+      let themeChoose = this.props.themeChoose;
+      this.drawChart(themeColor[themeChoose]);
   }
 
-  drawChart(){
+  componentWillReceiveProps(props){
+    let themeColor = props.themeColor;
+    let themeChoose = props.themeChoose;
+    this.drawChart(themeColor[themeChoose]);
+  }
+
+  drawChart(themeColor){
     let [processes, words] = loadScatter3Data();
     // let words = this.state.words;
     let scattar3dChart = echarts.init(document.getElementById('scatter3'));
     // specify chart configuration item and data
     let option = {
-        color: ['#4E6FFA', '#8762FF','#FF5C79','#FF7E53'],
+        color: themeColor,
         title: {
             text: 'Behavior2vec',
             textStyle: {
@@ -136,12 +144,12 @@ export default class Scatter3 extends Component {
             itemStyle: {
                 borderWidth: 0,
                 borderColor: '#ffffff',
-                color:"#FF7E53",
+                color:themeColor[3], //點點顏色
                 opacity:0.8
             },
             emphasis: {
                 itemStyle: {
-                    color: '#A892FE'
+                    color: themeColor[1]
                 }
             }
         }]

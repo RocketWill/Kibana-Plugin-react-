@@ -19,14 +19,18 @@ export default class Parallel extends Component {
   }
 
   componentDidMount() {
-      this.drawChart(this.state.user);
+    let themeColor = this.props.themeColor;
+    let themeChoose = this.props.themeChoose;
+    this.drawChart(this.state.user,themeColor[themeChoose] );
   }
 
   componentWillReceiveProps(props){
-    this.drawChart(props.user);
+    let themeColor = props.themeColor;
+    let themeChoose = props.themeChoose;
+    this.drawChart(props.user, themeColor[themeChoose]);
   }
 
-  drawChart(user){
+  drawChart(user, themeColor){
     let parallelData = loadParallelData();
     //添加parallel的用戶標籤
     const categoryData = []
@@ -38,7 +42,7 @@ export default class Parallel extends Component {
 
     var parallelChart = echarts.init(document.getElementById('parallel'));
     var option = {
-        color: ['#FF5C79','#FF7E53'],
+        color: [themeColor[2],themeColor[3]],
         title: 
           { text: 'Parallel',
             textStyle: {
@@ -104,8 +108,8 @@ export default class Parallel extends Component {
                         color: new echarts.graphic.LinearGradient(
                             0, 0, 0, 1,
                               [
-                                {offset: 0, color: '#FF5C79'},
-                                {offset: 1, color: '#FF7E53'}
+                                {offset: 0, color: themeColor[2]},
+                                {offset: 1, color: themeColor[3]}
                               ]
                           )
                     },

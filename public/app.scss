@@ -25,6 +25,22 @@
   font-weight: 400;
 }
 
+//換膚
+.theme {
+  list-style: none outside none; 
+  
+  li{
+    margin: 0 10px; 
+    display: inline;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px 15px;
+    cursor: pointer;
+  }
+}
+
+
+
+
 #reportable-event {
   .title {
     font-size: 1.2rem;
@@ -43,6 +59,15 @@
 
 .time-filter-panel{
   padding: 2rem !important;
+}
+
+.time-filter-btn{
+  background-color:rgba(35, 17, 77, 0.8);
+  padding: 10px 15px;
+  cursor: pointer;
+  width: 120px;
+  text-align: center;
+  font-size: 1.2rem;
 }
 
 .time-filter {
@@ -102,4 +127,33 @@
     background-color: #ffe5dd !important;
     color: #ff7e53;
   }
+}
+
+
+
+
+.example-enter {
+  transform:scaleY(0);
+  transition:transform .5s;
+  transform-origin: bottom center;
+}
+
+.example-enter.example-enter-active {
+  transform:scaleY(1);
+  transition:transform .5s;
+  transform-origin:top left;
+}
+
+.example-leave {
+  transform:scaleY(1);
+}
+
+.example-leave.example-leave-active {
+  transform:scaleY(0);
+  transition:transform .3s;
+  transform-origin: top center;
+}
+
+.bg-animate{
+  position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; margin: 0px; padding: 0px; overflow: hidden; z-index: -1; background-position: initial initial; background-repeat: initial initial; opacity: 0.5;
 }

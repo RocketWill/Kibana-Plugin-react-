@@ -20,10 +20,18 @@ export default class Calendar extends Component {
   }
 
   componentDidMount() {
-      this.drawChart();
+    let themeColor = this.props.themeColor;
+    let themeChoose = this.props.themeChoose;
+    this.drawChart(themeColor[themeChoose]);
   }
-  
-  drawChart(){
+
+  componentWillReceiveProps(props){
+    let themeColor = props.themeColor;
+    let themeChoose = props.themeChoose;
+    this.drawChart(themeColor[themeChoose]);
+  }
+
+  drawChart(themeColor){
     let calendarData = loadCalendarData();
     let calendarChart = echarts.init(document.getElementById('calendar'));
         let option = {
@@ -104,7 +112,7 @@ export default class Calendar extends Component {
                     },
                     itemStyle: {
                         normal: {
-                            color:'#ff5c79', //普通點點顏色
+                            color:themeColor[2], //普通點點顏色
                         }
                     },
                     
@@ -126,7 +134,7 @@ export default class Calendar extends Component {
                     hoverAnimation: true,
                     itemStyle: {
                         normal: {
-                            color: '#ff7e53',
+                            color: themeColor[3],
                             shadowBlur: 10,
                             shadowColor: '#453893'
                         }

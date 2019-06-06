@@ -20,16 +20,18 @@ export default class Radar extends Component {
   }
 
   componentDidMount() {
-      this.drawChart(this.state.user);
+    let themeColor = this.props.themeColor;
+    let themeChoose = this.props.themeChoose;
+    this.drawChart(this.state.user, themeColor[themeChoose]);
   }
 
   componentWillReceiveProps(props){
-    //console.log(props);
-    this.drawChart(props.user);
-
+    let themeColor = props.themeColor;
+    let themeChoose = props.themeChoose;
+    this.drawChart(props.user, themeColor[themeChoose]);
   }
 
-  drawChart(user){
+  drawChart(user, themeColor){
     const radarDataPre = loadRadarData();
     let radarData;
     if (user == undefined){
@@ -100,10 +102,10 @@ export default class Radar extends Component {
                             color: new echarts.graphic.RadialGradient(
                                 0, 1, 1.7, [{
                                 offset: 0.4,
-                                color: '#FF7E53'
+                                color: themeColor[2]
                             }, {
                                 offset: 1,
-                                color: '#FF666E'
+                                color: themeColor[3]
                             }], false),
                         }
                     },

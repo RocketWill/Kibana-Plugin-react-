@@ -3,7 +3,8 @@ import DayPicker, { DateUtils } from "react-day-picker";
 import "react-day-picker/lib/style.css";
 import React, { Component } from "react";
 
-import { EuiPanel, EuiFlexGrid } from "@elastic/eui";
+
+import { EuiPanel, EuiFlexItem, EuiFlexGroup } from "@elastic/eui";
 
 export default class TimeFilter extends Component {
   static defaultProps = {
@@ -34,13 +35,13 @@ export default class TimeFilter extends Component {
     this.props.handleTimeRange("01/01/2018", "12/31/2019");
   }
 
-  submit(){
+  submit() {
     this.props.handleTimeRange(this.state.from.toLocaleDateString(), this.state.to.toLocaleDateString());
   }
 
-  componentDidMount() {}
+  componentDidMount() { }
 
-  show(){}
+  show() { }
 
   render() {
     const { from, to } = this.state;
@@ -65,48 +66,54 @@ export default class TimeFilter extends Component {
     }
   `
     return (
-      <EuiPanel className="chart-panel time-filter-panel">
-        <div className="time-filter">
-          <DayPicker
-            className="Selectable"
-            numberOfMonths={this.props.numberOfMonths}
-            selectedDays={[from, { from, to }]}
-            modifiers={modifiers}
-            onDayClick={this.handleDayClick}
-          />
-          <p className="range">
-            {!from && !to && "Please select the first day."}
-            {from && !to && "Please select the last day."}
-            {from &&
-              to &&
-              `Selected from ${from.toLocaleDateString()} to
+      <EuiFlexGroup >
+        <EuiFlexItem style={{ maxWidth: 550 }}>
+
+
+          <EuiPanel className="chart-panel time-filter-panel">
+            <div className="time-filter">
+              <DayPicker
+                className="Selectable"
+                numberOfMonths={this.props.numberOfMonths}
+                selectedDays={[from, { from, to }]}
+                modifiers={modifiers}
+                onDayClick={this.handleDayClick}
+              />
+              <p className="range">
+                {!from && !to && "Please select the first day."}
+                {from && !to && "Please select the last day."}
+                {from &&
+                  to &&
+                  `Selected from ${from.toLocaleDateString()} to
                   ${to.toLocaleDateString()}`}{" "}
-          </p>
+              </p>
 
-          <p id="time-start">{from && to && `${from.toLocaleDateString()}`}</p>
+              <p id="time-start">{from && to && `${from.toLocaleDateString()}`}</p>
 
-          <p id="time-end">{from && to && `${to.toLocaleDateString()}`}</p>
+              <p id="time-end">{from && to && `${to.toLocaleDateString()}`}</p>
 
-          {from && to && (
-            <button
-              className="btn btn-reset"
-              onClick={this.handleResetClick}
-            >
-              Reset
+              {from && to && (
+                <button
+                  className="btn btn-reset"
+                  onClick={this.handleResetClick}
+                >
+                  Reset
             </button>
-          )}
-          <br />
-          {from && to && (
-            <button className="btn btn-submit" onClick={this.submit}>
-              Submit
+              )}
+              <br />
+              {from && to && (
+                <button className="btn btn-submit" onClick={this.submit}>
+                  Submit
             </button>
-          )}
+              )}
 
-          <Helmet>
-            <style>{style}</style>
-          </Helmet>
-        </div>
-      </EuiPanel>
+              <Helmet>
+                <style>{style}</style>
+              </Helmet>
+            </div>
+          </EuiPanel>
+        </EuiFlexItem>
+      </EuiFlexGroup>
     );
   }
 }

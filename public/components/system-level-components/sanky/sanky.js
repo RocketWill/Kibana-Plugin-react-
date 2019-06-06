@@ -34,28 +34,32 @@ export default class Sankey extends Component {
   }
 
   componentDidMount() {
-      this.drawChart(this.props.range[0], this.props.range[1]);
+      let themeColor = this.props.themeColor;
+      let themeChoose = this.props.themeChoose;
+      this.drawChart(this.props.range[0], this.props.range[1], themeColor[themeChoose]);
   }
 
-  shouldComponentUpdate(nextProps, nextState){
-    if (nextState.range == this.state.range){
-      return false;
-    }
-    if (nextProps == undefined || nextState == undefined){
-      return false;
-    }
-    this.drawChart(nextState.range[0], nextState.range[1]);
-  }
+  // shouldComponentUpdate(nextProps, nextState){
+  //   if (nextState.range == this.state.range){
+  //     return false;
+  //   }
+  //   if (nextProps == undefined || nextState == undefined){
+  //     return false;
+  //   }
+  //   let themeColor = nextState.themeColor;
+  //   let themeChoose = nextState.themeChoose;
+  //   console.log(themeChoose);
+  //   this.drawChart(nextState.range[0], nextState.range[1], themeColor[themeChoose]);
+  // }
 
   componentWillReceiveProps(props){
-    this.setState({
-      range: props.range
-    });
-    //this.drawChart();
+    let themeColor = props.themeColor;
+    let themeChoose = props.themeChoose;
+    this.drawChart(props.range[0], props.range[1], themeColor[themeChoose]);
   }
 
   
-  drawChart(start, end){
+  drawChart(start, end, themeColor){
     let elasticsearch = require("elasticsearch-browser/elasticsearch.js");
     let client = new elasticsearch.Client({
       host: "localhost:9200"
@@ -101,7 +105,7 @@ export default class Sankey extends Component {
 
           //開始繪製桑基圖
           mySankey.setOption({
-            color: ["#4E6FFA", "#8762FF", "#FF5C79", "#FF7E53"],
+            color: themeColor,
             title: {
               text: "Sankey Diagram",
               textStyle: {
